@@ -57,10 +57,10 @@ public class RootConfig {
             properties = propertiesFactoryBean().getObject();
             druidDataSource.setMaxActive(10);
             druidDataSource.setMinIdle(5);
-            druidDataSource.setUrl(properties.getProperty("url"));
-            druidDataSource.setDriverClassName(properties.getProperty("driver"));
-            druidDataSource.setUsername(properties.getProperty("username"));
-            druidDataSource.setPassword(properties.getProperty("password"));
+            druidDataSource.setUrl(properties.getProperty("jdbc.url"));
+            druidDataSource.setDriverClassName(properties.getProperty("jdbc.driver"));
+            druidDataSource.setUsername(properties.getProperty("jdbc.username"));
+            druidDataSource.setPassword(properties.getProperty("jdbc.password"));
         } catch (IOException e) {
             e.printStackTrace();
         }
