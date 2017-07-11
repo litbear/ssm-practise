@@ -1,20 +1,16 @@
 package org.litbear.ssm.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.core.type.filter.RegexPatternTypeFilter;
 
-import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.regex.Pattern;
@@ -30,7 +26,7 @@ import java.util.regex.Pattern;
                 value = RootConfig.WebPackage.class
         )
 )
-@MapperScan("org.litbear.ssm.mappers")
+@MapperScan("org.litbear.ssm.dao")
 public class RootConfig {
 
     public static class WebPackage extends RegexPatternTypeFilter{

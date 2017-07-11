@@ -1,7 +1,11 @@
 package org.litbear.ssm.config;
 
 import org.litbear.ssm.web.WebConfig;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * Created by litbear on 2017/6/29.
