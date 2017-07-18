@@ -25,4 +25,15 @@ public class BlogWebApplicationInitializer extends AbstractAnnotationConfigDispa
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+        encodingFilter.setEncoding("UTF-8");
+        encodingFilter.setForceEncoding(true);
+        return new Filter[] {
+                encodingFilter,
+                new HiddenHttpMethodFilter()
+        };
+    }
 }
