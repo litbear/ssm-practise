@@ -9,11 +9,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -49,7 +52,12 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<User> addUserByForm (User user){
+    public ResponseEntity<User> addUserByForm (@Valid User user, BindingResult result){
+        if (result.hasErrors()){
+            for (ObjectError resultItem:result.getAllErrors()) {
+                LOGGER.info(resultItem.toString());
+            }
+        }
         LOGGER.info(user);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
