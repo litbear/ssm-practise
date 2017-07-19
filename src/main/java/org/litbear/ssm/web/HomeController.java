@@ -40,6 +40,21 @@ public class HomeController {
     }
 
     /**
+     * 以传统POST方式提交表单
+     * @return
+     */
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String add(){
+        return "add";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ResponseEntity<User> addUserByForm (User user){
+        LOGGER.info(user);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+
+    /**
      * 处理新增用户请求
      * @param user
      * @return
