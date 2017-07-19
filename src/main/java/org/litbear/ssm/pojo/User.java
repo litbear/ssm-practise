@@ -1,7 +1,6 @@
 package org.litbear.ssm.pojo;
 
 import org.hibernate.validator.constraints.Email;
-import org.litbear.ssm.Gender;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
@@ -17,7 +16,7 @@ public class User {
     @Size(min = 3, max = 16, message = "用户名必须在3到16字以内")
     private String username;
     @NotNull(message = "性别必须填写")
-    private Integer gender;
+    private Gender gender;
     @Past(message = "出生日期必须早于今天")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
@@ -42,11 +41,11 @@ public class User {
         this.username = username;
     }
 
-    public Integer getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

@@ -1,5 +1,5 @@
 import org.junit.Test;
-import org.litbear.ssm.Gender;
+import org.litbear.ssm.pojo.Gender;
 
 /**
  * Created by litbear on 2017/7/15.

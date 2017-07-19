@@ -26,13 +26,13 @@
             <label for="gender1">性别</label>
             <div class="radio">
                 <label>
-                    <input type="radio" name="gender" id="gender1" value="0" checked>
+                    <input type="radio" name="gender" id="gender1" value="FEMALE" checked>
                     女
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="gender" id="gender2" value="1">
+                    <input type="radio" name="gender" id="gender2" value="MALE">
                     男
                 </label>
             </div>
