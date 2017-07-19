@@ -1,17 +1,17 @@
 package org.litbear.ssm.pojo;
 
 public enum Gender {
-    MALE("1"),
-    FEMALE("0");
+    MALE(1),
+    FEMALE(0);
 
-    private final String databaseValue;
+    private final int databaseValue;
 
-    Gender(String databaseValue) {
+    Gender(int databaseValue) {
         this.databaseValue = databaseValue;
     }
 
 
-    public String getDatabaseValue() {
+    public int getDatabaseValue() {
         return databaseValue;
     }
 }
