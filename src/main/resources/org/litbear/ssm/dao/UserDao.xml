@@ -11,17 +11,17 @@
     </select>
     
     <insert id="insertUser" parameterType="org.litbear.ssm.pojo.User">
-        <selectKey keyProperty="id" resultType="Long" order="AFTER" >
+        <selectKey keyProperty="id" resultType="Long" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO user (id, username, gender, birthdate, email, address)
-        VALUES (#{id}, #{username}, #{gender.databaseValue}, #{birthdate}, #{email}, #{address})
+        VALUES (#{id}, #{username}, #{gender.ordinal}, #{birthdate}, #{email}, #{address})
     </insert>
 
     <update id="updateUser" parameterType="org.litbear.ssm.pojo.User">
         UPDATE user SET
         username = #{username},
-        gender = #{gender},
+        gender = #{gender.ordinal},
         birthdate = #{birthdate},
         email = #{email},
         address = #{address}

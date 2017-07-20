@@ -54,7 +54,8 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<User> addUserByForm(@Valid User user, BindingResult result) {
+    @ResponseBody
+    public User addUserByForm(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             for (ObjectError resultItem : result.getAllErrors()) {
                 LOGGER.info(resultItem.toString());
@@ -62,7 +63,7 @@ public class HomeController {
         }
         LOGGER.info(user);
         userService.insertUser(user);
-        return new ResponseEntity<User>(user, HttpStatus.OK);
+        return user;
     }
 
     /**
